@@ -4,6 +4,18 @@
 #include <GL/glu.h>
 #include <GL/glut.h>
 
+enum Draw_Mode {
+    LINE_MODE,
+    COLOR_MODE,
+    TEXEL_MODE
+};
+
+int mode = LINE_MODE;
+
+void setMode(int newMode){
+    mode = newMode;
+}
+
 void renderScene(void) {
 
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -41,6 +53,20 @@ void processNormalKeys(unsigned char key, int x, int y) {
         case 82: // R
             printf("Reiniciar\n");
             return;
+        case 88: // X
+            if (mod == (GLUT_ACTIVE_SHIFT)) {
+                printf("Zoom in con shift\n");
+                return;
+            }
+            printf("Zoom in\n");
+            return;
+        case 90: // Z
+            if (mod == (GLUT_ACTIVE_SHIFT)) {
+                printf("Zoom out con shift\n");
+                return;
+            }
+            printf("Zoom out\n");
+            return;
         case 106: // j
             if (mod == (GLUT_ACTIVE_SHIFT)) {
                 printf("Rotar manecillas reloj con shift\n");
@@ -60,6 +86,20 @@ void processNormalKeys(unsigned char key, int x, int y) {
         case 114: // r
             printf("Reiniciar\n");
             return;        
+        case 120: // x
+            if (mod == (GLUT_ACTIVE_SHIFT)) {
+                printf("Zoom in con shift\n");
+                return;
+            }
+            printf("Zoom in\n");
+            return;
+        case 122: // z
+            if (mod == (GLUT_ACTIVE_SHIFT)) {
+                printf("Zoom out con shift\n");
+                return;
+            }
+            printf("Zoom out\n");
+            return;
     }
 }
 // rotacion, pan y zoom
@@ -67,13 +107,16 @@ void processSpecialKeys(int key, int x, int y) {
     int mod = glutGetModifiers();
 	switch(key) {
 		case GLUT_KEY_F1 :
-				printf("Sin colorear\n");
+                setMode(LINE_MODE);
+                printf("%d\n", mode);
 				return;
 		case GLUT_KEY_F2 :
-				printf("Coloreado\n");
+                setMode(COLOR_MODE);
+				printf("%d\n", mode);
 				return;
-		case GLUT_KEY_F3 : //GLUT_KEY_DOWN
-				printf("Con texturas\n");
+		case GLUT_KEY_F3 :
+                setMode(TEXEL_MODE);
+				printf("%d\n", mode);
 				return;
         case GLUT_KEY_LEFT :
                 if (mod == (GLUT_ACTIVE_SHIFT)) {
