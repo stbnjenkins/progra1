@@ -9,6 +9,7 @@
 #include "PlotPoligons.c"
 #include "lineNode.c"
 #include "Filling.c"
+#include "keyboard_input.c"
 
 //Run the window
 void window_runner(int res) {
@@ -80,6 +81,13 @@ void window_runner(int res) {
     
     plot_framebuffer(res);
 //  glutDisplayFunc(dummy);
+
+
+    // here are the new entries
+	glutKeyboardFunc(processNormalKeys);
+	glutSpecialFunc(processSpecialKeys);
+
+
     glutMainLoop();
 }
 
