@@ -161,7 +161,7 @@ PointNodePtr get_max_min_knee (PointNodePtr first, int skyline) {
 }
 
 //Fill skyline
-void fill_skyline (PointNodePtr first, double R, double G, double B) {
+void fill_skyline (PointNodePtr first, double R, double G, double B, int mode) {
     PointNodePtr ptr;
     int pinta = 1;
     if (first == NULL){
@@ -170,7 +170,7 @@ void fill_skyline (PointNodePtr first, double R, double G, double B) {
     } else if (first->next != NULL){
         for (ptr = first;ptr->next != NULL;ptr = ptr->next) {
             if (pinta == 1) { 
-                bresenham(ptr->point,(ptr->next)->point, R, G, B);
+                bresenham(ptr->point,(ptr->next)->point, R, G, B, mode);
                 pinta = 0;
             } else {
                 pinta = 1;
@@ -180,7 +180,7 @@ void fill_skyline (PointNodePtr first, double R, double G, double B) {
 }
 
 // Filling poligons
-void fill_poligon_to_buffer (PointNodePtr first, int yi, int yf, double R, double G, double B){
+void fill_poligon_to_buffer (PointNodePtr first, int yi, int yf, double R, double G, double B, int mode){
     PointNodePtr intersection_list;
     Point temp_point;
     LineNodePtr border_list = map_points_to_poligon_borders(first);
@@ -204,6 +204,6 @@ void fill_poligon_to_buffer (PointNodePtr first, int yi, int yf, double R, doubl
         }
 
         intersection_list = sort_intersections (intersection_list);
-        fill_skyline(intersection_list, R, G, B);    
+        fill_skyline(intersection_list, R, G, B, mode);    
     }
 }

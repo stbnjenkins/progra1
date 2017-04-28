@@ -4,10 +4,11 @@ enum Draw_Mode {
     TEXEL_MODE
 };
 
-int mode = LINE_MODE;
+int fill_mode = LINE_MODE;
+int current_res;
 
 void setMode(int newMode){
-    mode = newMode;
+    fill_mode = newMode;
 }
 
 void processNormalKeys(unsigned char key, int x, int y) {
@@ -89,15 +90,18 @@ void processSpecialKeys(int key, int x, int y) {
 	switch(key) {
 		case GLUT_KEY_F1 :
                 setMode(LINE_MODE);
-                printf("%d\n", mode);
+                printf("%d\n", fill_mode);
+                frame_plotter (current_res, fill_mode);
 				return;
 		case GLUT_KEY_F2 :
                 setMode(COLOR_MODE);
-				printf("%d\n", mode);
+				printf("%d\n", fill_mode);
+                frame_plotter (current_res, fill_mode);
 				return;
 		case GLUT_KEY_F3 :
                 setMode(TEXEL_MODE);
-				printf("%d\n", mode);
+				printf("%d\n", fill_mode);
+                frame_plotter (current_res, fill_mode);
 				return;
         case GLUT_KEY_LEFT :
                 if (mod == (GLUT_ACTIVE_SHIFT)) {

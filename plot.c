@@ -11,11 +11,31 @@
 
 COLOR **buffer;
 
+//TEXEL MAPPING
+COLOR texel_mapping(int x, int y) {
+    COLOR my_RGB;
+    if (x<y) {
+        my_RGB.r = (double) x/y;
+        my_RGB.b = (double) x/y;
+        my_RGB.g = (double) x/y;
+    } else {
+        my_RGB.r = (double) y/x;
+        my_RGB.b = (double) y/x;
+        my_RGB.g = (double) y/x;
+    }
+
+    return my_RGB;
+}
+
 //Plot put the points in the buffer
-void plot(int x,int y,double R,double G,double B){
+void plot(int x,int y,double R,double G,double B, int mode){
+    if (mode == 7) {
       buffer[x][y].r = R;
       buffer[x][y].g = G;
       buffer[x][y].b = B;
+    } else {
+        buffer[x][y] = texel_mapping(x,y);
+    }
 }
 
 //Take info from buffer and put it on display
