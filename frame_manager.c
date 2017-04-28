@@ -1,4 +1,11 @@
 //frame manager
+#include "san_jose.c"
+#include "alajuela.c"
+#include "cartago.c"
+//#include "heredia.c"
+#include "puntarenas.c"
+#include "limon.c"
+#include "guanacaste.c"
 
 Poligon_NodePtr list_of_provinces = NULL;
 
@@ -8,37 +15,36 @@ Poligon_NodePtr create_list_of_provinces (){
     Real_PointNodePtr list_of_points;
 
     //including San Jose
-    list_of_points = first_poligon();
-
+    list_of_points = chepe_poligon();
     first = poligon_insert_node_last(list_of_points, 0.6, 0.4, 1, 0, first);
 
     //including Cartago
-    list_of_points = second_poligon();
+    list_of_points = cartago_poligon();
     first = poligon_insert_node_last(list_of_points, 0, 0, 1, 1, first);
 
     //including Alajuela
-    list_of_points = third_poligon();
+    list_of_points = alajuela_poligon();
     first = poligon_insert_node_last(list_of_points, 1, 0, 0, 2, first);
 
     // //including Puntarenas 1
-    // list_of_points = first_poligon();
-    // first = poligon_insert_node_last(list_of_points, 1, 0.4, 0, 3, first);
+    list_of_points = puntarenas_poligon();
+    first = poligon_insert_node_last(list_of_points, 1, 0.4, 0, 3, first);
 
-    // //including Puntarenas 2
-    // list_of_points = first_poligon();
-    // first = poligon_insert_node_last(list_of_points, 1, 0.4, 0, 3, first);
+    // // //including Puntarenas 2
+    // // list_of_points = first_poligon();
+    // // first = poligon_insert_node_last(list_of_points, 1, 0.4, 0, 3, first);
 
     // //including Limon
-    // list_of_points = first_poligon();
-    // first = poligon_insert_node_last(list_of_points, 0, 1, 0, 4, first);
+    list_of_points = limon_poligon();
+    first = poligon_insert_node_last(list_of_points, 0, 1, 0, 4, first);
 
-    // //including Heredia
-    // list_of_points = first_poligon();
-    // first = poligon_insert_node_last(list_of_points, 1, 1, 0, 5, first);
+    // // //including Heredia
+    // // list_of_points = first_poligon();
+    // // first = poligon_insert_node_last(list_of_points, 1, 1, 0, 5, first);
 
     // //including Guana
-    // list_of_points = first_poligon();
-    // first = poligon_insert_node_last(list_of_points, 0.43, 0.27, 0.002, 6, first);
+    list_of_points = guanacaste_poligon();
+    first = poligon_insert_node_last(list_of_points, 0.43, 0.27, 0.002, 6, first);
 
     return first;
 }
@@ -46,8 +52,11 @@ Poligon_NodePtr create_list_of_provinces (){
 //Plot Poligon list border only
 void plot_poligon_list_border_only (Poligon_NodePtr first, int res){
     ini_buffer(res);
+    point_list_delete();
+    r_point_list_delete();
+    line_list_delete();
     Poligon_NodePtr ptr;
-    Real_PointNodePtr real_temp;
+    Real_PointNodePtr real_temp, clipped;
     PointNodePtr int_temp;
     if (first == NULL) {
         printf("\nEMPTY LIST:");
@@ -55,7 +64,8 @@ void plot_poligon_list_border_only (Poligon_NodePtr first, int res){
     } else {
         for (ptr = first;ptr != NULL;ptr = ptr->next) {    
             real_temp = ptr->list_of_point;
-            int_temp = map_real_to_int_point_list(real_temp);
+            clipped = clipping (real_temp, 1, 1,  549, 549);
+            int_temp = map_real_to_int_point_list(clipped);
             create_poligon_to_buffer (int_temp);
         }
     }
@@ -65,8 +75,11 @@ void plot_poligon_list_border_only (Poligon_NodePtr first, int res){
 //Plot Poligon list fill
 void plot_poligon_list_fill (Poligon_NodePtr first, int res){
     ini_buffer(res);
+    point_list_delete();
+    r_point_list_delete();
+    line_list_delete();
     Poligon_NodePtr ptr;
-    Real_PointNodePtr real_temp;
+    Real_PointNodePtr real_temp, clipped;
     PointNodePtr int_temp;
     if (first == NULL) {
         printf("\nEMPTY LIST:");
@@ -74,8 +87,9 @@ void plot_poligon_list_fill (Poligon_NodePtr first, int res){
     } else {
         for (ptr = first;ptr != NULL;ptr = ptr->next) {    
             real_temp = ptr->list_of_point;
-            int_temp = map_real_to_int_point_list(real_temp);
-            fill_poligon_to_buffer (int_temp, 0, res, ptr->R, ptr->G, ptr->B, 7);
+            clipped = clipping (real_temp, 1, 1,  549, 549);
+            int_temp = map_real_to_int_point_list(clipped);
+            fill_poligon_to_buffer (int_temp, 1, 549, ptr->R, ptr->G, ptr->B, 7);
         }
     }
     plot_framebuffer(res);
@@ -84,8 +98,11 @@ void plot_poligon_list_fill (Poligon_NodePtr first, int res){
 //Plot Poligon list fill with texel
 void plot_poligon_list_fil_with_texel (Poligon_NodePtr first, int res){
     ini_buffer(res);
+    point_list_delete();
+    r_point_list_delete();
+    line_list_delete();
     Poligon_NodePtr ptr;
-    Real_PointNodePtr real_temp;
+    Real_PointNodePtr real_temp, clipped;
     PointNodePtr int_temp;
     if (first == NULL) {
         printf("\nEMPTY LIST:");
@@ -93,8 +110,9 @@ void plot_poligon_list_fil_with_texel (Poligon_NodePtr first, int res){
     } else {
         for (ptr = first;ptr != NULL;ptr = ptr->next) {    
             real_temp = ptr->list_of_point;
-            int_temp = map_real_to_int_point_list(real_temp);
-            fill_poligon_to_buffer (int_temp, 0, res, ptr->R, ptr->G, ptr->B, ptr->mode);
+            clipped = clipping (real_temp, 1, 1,  549, 549);
+            int_temp = map_real_to_int_point_list(clipped);
+            fill_poligon_to_buffer (int_temp, 1, 549, ptr->R, ptr->G, ptr->B, ptr->mode);
         }
     }
     plot_framebuffer(res);

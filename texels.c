@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "../rgb.h"
+#include "rgb.h"
 
 #define SWAP(x) ( ((x) << 24) | \
          (((x) << 8) & 0x00ff0000) | \
@@ -47,7 +47,7 @@ int width_alajuela,height_alajuela,
 void openTextureFiles(){
     int a,r,g,b;
     // Alajuela
-    if ((fptr_alajuela = fopen("../textures/alajuela.avs","rb")) == NULL) {
+    if ((fptr_alajuela = fopen("textures/alajuela.avs","rb")) == NULL) {
       fprintf(stderr,"Failed to open alajuela input file\n");
       exit(-1);
     }
@@ -88,7 +88,7 @@ void openTextureFiles(){
     fclose(fptr_alajuela);
 
     // SAN JOSE
-    if ((fptr_san_jose = fopen("../textures/san_jose.avs","rb")) == NULL) {
+    if ((fptr_san_jose = fopen("textures/san_jose.avs","rb")) == NULL) {
       fprintf(stderr,"Failed to open SAN_JOSE input file\n");
       exit(-1);
     }
@@ -125,7 +125,7 @@ void openTextureFiles(){
     fclose(fptr_san_jose);
 
     // HEREDIA
-    if ((fptr_heredia = fopen("../textures/heredia.avs","rb")) == NULL) {
+    if ((fptr_heredia = fopen("textures/heredia.avs","rb")) == NULL) {
       fprintf(stderr,"Failed to open HEREDIA input file\n");
       exit(-1);
     }
@@ -162,7 +162,7 @@ void openTextureFiles(){
     fclose(fptr_heredia);
 
     // CARTAGO
-    if ((fptr_cartago = fopen("../textures/cartago.avs","rb")) == NULL) {
+    if ((fptr_cartago = fopen("textures/cartago.avs","rb")) == NULL) {
       fprintf(stderr,"Failed to open CARTAGO input file\n");
       exit(-1);
     }
@@ -199,7 +199,7 @@ void openTextureFiles(){
     fclose(fptr_cartago);
 
     // LIMON
-    if ((fptr_limon = fopen("../textures/limon.avs","rb")) == NULL) {
+    if ((fptr_limon = fopen("textures/limon.avs","rb")) == NULL) {
       fprintf(stderr,"Failed to open LIMON input file\n");
       exit(-1);
     }
@@ -236,7 +236,7 @@ void openTextureFiles(){
     fclose(fptr_limon);
 
     // GUANACASTE
-    if ((fptr_guanacaste = fopen("../textures/green.avs","rb")) == NULL) {
+    if ((fptr_guanacaste = fopen("textures/green.avs","rb")) == NULL) {
       fprintf(stderr,"Failed to open GUANACASTE input file\n");
       exit(-1);
     }
@@ -273,7 +273,7 @@ void openTextureFiles(){
     fclose(fptr_guanacaste);
     
     // PUNTARENAS
-    if ((fptr_puntarenas = fopen("../textures/puntarenas.avs","rb")) == NULL) {
+    if ((fptr_puntarenas = fopen("textures/puntarenas.avs","rb")) == NULL) {
       fprintf(stderr,"Failed to open PUNTARENAS input file\n");
       exit(-1);
     }
@@ -354,7 +354,7 @@ COLOR texel_mapping(int x, int y, int provincia){
             texel_color.b = 0.0;
             break;
     }
-    printf("RGB: %lf %lf %lf\n", texel_color.r, texel_color.g, texel_color.b);
+    //printf("RGB: %lf %lf %lf\n", texel_color.r, texel_color.g, texel_color.b);
     return texel_color;
 }
 

@@ -34,6 +34,10 @@ void processNormalKeys(unsigned char key, int x, int y) {
             exit(0);
         case 82: // R
             printf("Reiniciar\n");
+            list_of_provinces = create_list_of_provinces();
+            ini_buffer(current_res);
+            plot_framebuffer(current_res);
+            frame_plotter (current_res, 0);
             return;
         case 88: // X
             if (mod == (GLUT_ACTIVE_SHIFT)) {
@@ -67,6 +71,10 @@ void processNormalKeys(unsigned char key, int x, int y) {
             exit(0);
         case 114: // r
             printf("Reiniciar\n");
+            list_of_provinces = create_list_of_provinces();
+            ini_buffer(current_res);
+            plot_framebuffer(current_res);
+            frame_plotter (current_res, 0);
             return;        
         case 120: // x
             if (mod == (GLUT_ACTIVE_SHIFT)) {
@@ -106,30 +114,46 @@ void processSpecialKeys(int key, int x, int y) {
         case GLUT_KEY_LEFT :
                 if (mod == (GLUT_ACTIVE_SHIFT)) {
                     printf("Pan left con shift\n");
+                    poligon_do_pan (list_of_provinces, -30, 0);
+                    frame_plotter (current_res, fill_mode);
                     return;
                 }
 				printf("Pan left\n");
+                poligon_do_pan (list_of_provinces, -10, 0);
+                frame_plotter (current_res, fill_mode);
 				return;
         case GLUT_KEY_RIGHT :
                 if (mod == (GLUT_ACTIVE_SHIFT)) {
                     printf("Pan right con shift\n");
+                    poligon_do_pan (list_of_provinces, 30, 0);
+                    frame_plotter (current_res, fill_mode);
                     return;
                 }
 				printf("Pan right\n");
+                poligon_do_pan (list_of_provinces, 10, 0);
+                frame_plotter (current_res, fill_mode);
 				return;
         case GLUT_KEY_DOWN :
                 if (mod == (GLUT_ACTIVE_SHIFT)) {
                     printf("Pan down con shift\n");
+                    poligon_do_pan (list_of_provinces, 0, -30);
+                    frame_plotter (current_res, fill_mode);
                     return;
                 }
 				printf("Pan down\n");
+                poligon_do_pan (list_of_provinces, 0, -10);
+                frame_plotter (current_res, fill_mode);
 				return;
         case GLUT_KEY_UP :
                 if (mod == (GLUT_ACTIVE_SHIFT)) {
                     printf("Pan up con shift\n");
+                    poligon_do_pan (list_of_provinces, 0, 30);
+                    frame_plotter (current_res, fill_mode);
                     return;
                 }
 				printf("Pan up\n");
+                poligon_do_pan (list_of_provinces, 0, 10);
+                frame_plotter (current_res, fill_mode);
 				return;
 	}
 }

@@ -1,22 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "texels.c"
 #include "plot.c"
 #include "Bresenham.c"
 #include "Mappings.c"
-#include "Movements.c"
 #include "Clipping.c"
-#include "PlotPoligons.c"
 #include "lineNode.c"
 #include "Filling.c"
 #include "poligon_struct.c"
+#include "Movements.c"
 #include "poligons_ini.c"
 #include "frame_manager.c"
 #include "keyboard_input.c"
 
 //Run the window
-
-int current_res;
 
 void window_runner(int res) {
     //starting window
@@ -30,10 +28,13 @@ void window_runner(int res) {
     glClear(GL_COLOR_BUFFER_BIT);
     gluOrtho2D(-0.5, res +0.5, -0.5, res + 0.5);
 
+    ini_buffer(res);
+    plot_framebuffer(res);
+
     current_res = res;
     list_of_provinces = create_list_of_provinces();
 
-    frame_plotter (res, fill_mode);
+    frame_plotter (current_res, fill_mode);
 
     // here are the new entries
 	glutKeyboardFunc(processNormalKeys);
@@ -60,6 +61,6 @@ int main(int argc, char **argv){
 
     //initialzing buffer
     ini_buffer(res);
-
+    openTextureFiles();
     window_runner(res);
 }

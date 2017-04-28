@@ -6,8 +6,8 @@
 int criteria_comparizon (double value_ini, double value_fin, int border, int criteria) {
 //criteria 0 -> right or top -> max
     if (criteria == 0){
-        if (value_ini <= border) {
-            if (value_fin <= border){
+        if (value_ini < border) {
+            if (value_fin < border){
                 //case ALFA
                 return 0;
             } else {
@@ -15,7 +15,7 @@ int criteria_comparizon (double value_ini, double value_fin, int border, int cri
                 return 1;
             }
         } else {
-            if (value_fin <= border){
+            if (value_fin < border){
                 //case DELTA
                 return 2;
             } else {
@@ -25,8 +25,8 @@ int criteria_comparizon (double value_ini, double value_fin, int border, int cri
         }
 //criteria 1 -> left or buttom -> min        
     } else {
-        if (value_ini >= border) {
-            if (value_fin >= border){
+        if (value_ini > border) {
+            if (value_fin > border){
                 //case ALFA
                 return 0;
             } else {
@@ -34,7 +34,7 @@ int criteria_comparizon (double value_ini, double value_fin, int border, int cri
                 return 1;
             }
         } else {
-            if (value_fin >= border){
+            if (value_fin > border){
                 //case DELTA
                 return 2;
             } else {

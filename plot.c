@@ -2,7 +2,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "rgb.h"
 
 #include <GL/gl.h>
 #include <GL/glu.h>
@@ -11,22 +10,6 @@
 
 COLOR **buffer;
 
-//TEXEL MAPPING
-COLOR texel_mapping(int x, int y) {
-    COLOR my_RGB;
-    if (x<y) {
-        my_RGB.r = (double) x/y;
-        my_RGB.b = (double) x/y;
-        my_RGB.g = (double) x/y;
-    } else {
-        my_RGB.r = (double) y/x;
-        my_RGB.b = (double) y/x;
-        my_RGB.g = (double) y/x;
-    }
-
-    return my_RGB;
-}
-
 //Plot put the points in the buffer
 void plot(int x,int y,double R,double G,double B, int mode){
     if (mode == 7) {
@@ -34,7 +17,7 @@ void plot(int x,int y,double R,double G,double B, int mode){
       buffer[x][y].g = G;
       buffer[x][y].b = B;
     } else {
-        buffer[x][y] = texel_mapping(x,y);
+        buffer[x][y] = texel_mapping(x,y, mode);
     }
 }
 
