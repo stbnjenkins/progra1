@@ -97,8 +97,8 @@ void total_display(PointNodePtr first){
 void point_list_delete () {
     PointNodePtr ptr;
     if (first_node == NULL){
-        printf("\nEMPTY LIST:");
-        printf(":No nodes in the list to remove\n");
+        // printf("\nEMPTY LIST:");
+        // printf(":No nodes in the list to remove\n");
     } else{
         while (first_node != NULL) {
             ptr = first_node;

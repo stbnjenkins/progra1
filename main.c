@@ -47,19 +47,20 @@ int main(int argc, char **argv){
     int res; 
 
     // get parameters
-    if (argc != 2) {
-        printf("Usage <program> <resolution>\n");
+    if (argc != 1) {
+        printf("Usage <program>\n");
         return -1;
     }  
 
 
     // Get parameters
-    res = (int) atoi(argv[1]);
+//    res = (int) atoi(argv[1]);
 //    n_lines = (int) atoi(argv[2]);
 //    times = (int) atoi(argv[3]);
 //    doplot = (int) atoi(argv[4]);
 
     //initialzing buffer
+    res = 550;
     ini_buffer(res);
     openTextureFiles();
     window_runner(res);

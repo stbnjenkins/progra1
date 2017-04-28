@@ -14,6 +14,10 @@ Poligon_NodePtr create_list_of_provinces (){
     Poligon_NodePtr first = poligon_create_list();
     Real_PointNodePtr list_of_points;
 
+    // //including San Jose
+    // list_of_points = first_poligon();
+    // first = poligon_insert_node_last(list_of_points, 0.6, 0.4, 1, 0, first);
+
     //including San Jose
     list_of_points = chepe_poligon();
     first = poligon_insert_node_last(list_of_points, 0.6, 0.4, 1, 0, first);
@@ -51,7 +55,7 @@ Poligon_NodePtr create_list_of_provinces (){
 
 //Plot Poligon list border only
 void plot_poligon_list_border_only (Poligon_NodePtr first, int res){
-    ini_buffer(res);
+//    ini_buffer(res);
     point_list_delete();
     r_point_list_delete();
     line_list_delete();
@@ -74,7 +78,7 @@ void plot_poligon_list_border_only (Poligon_NodePtr first, int res){
 
 //Plot Poligon list fill
 void plot_poligon_list_fill (Poligon_NodePtr first, int res){
-    ini_buffer(res);
+//    ini_buffer(res);
     point_list_delete();
     r_point_list_delete();
     line_list_delete();
@@ -97,7 +101,7 @@ void plot_poligon_list_fill (Poligon_NodePtr first, int res){
 
 //Plot Poligon list fill with texel
 void plot_poligon_list_fil_with_texel (Poligon_NodePtr first, int res){
-    ini_buffer(res);
+//    ini_buffer(res);
     point_list_delete();
     r_point_list_delete();
     line_list_delete();
@@ -120,11 +124,14 @@ void plot_poligon_list_fil_with_texel (Poligon_NodePtr first, int res){
 
 //Run plotter with mode
 void frame_plotter (int res, int disp_mode){
+    ini_buffer(res);
     if (disp_mode == 0) {
         plot_poligon_list_border_only (list_of_provinces, res);
     } else if (disp_mode == 1) {
         plot_poligon_list_fill (list_of_provinces, res);
+        plot_poligon_list_border_only (list_of_provinces, res);
     } else if (disp_mode == 2) {
         plot_poligon_list_fil_with_texel (list_of_provinces, res);
+        plot_poligon_list_border_only (list_of_provinces, res);
     }
 } 

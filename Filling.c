@@ -134,27 +134,40 @@ PointNodePtr get_max_min_knee (PointNodePtr first, int skyline) {
 
             //cases of max/min knee
             if ((actual->point).y == skyline) {
-                if ((pre->point).y < (actual->point).y) {
-                    if ((actual->point).y > (post->point).y) {
+                if        ((pre->point).y < (actual->point).y && (actual->point).y > (post->point).y) {
                     //Max case
-                        intersection = insert_node_last (actual->point, intersection);
-                        intersection = insert_node_last (actual->point, intersection);
-                    } else if ((actual->point).y < (post->point).y) {
+                    intersection = insert_node_last (actual->point, intersection);
+                    intersection = insert_node_last (actual->point, intersection);
+                } else if ((pre->point).y < (actual->point).y && (actual->point).y < (post->point).y) {
                     //Knee case
-                        intersection = insert_node_last (actual->point, intersection);
-                    }
-                } else if ((pre->point).y > (actual->point).y) {
-                    if ((actual->point).y < (post->point).y) {
+                    intersection = insert_node_last (actual->point, intersection);
+                } else if ((pre->point).y < (actual->point).y && (actual->point).y == (post->point).y) {
+                    //Knee case
+                    intersection = insert_node_last (actual->point, intersection);    
+                } else if ((pre->point).y > (actual->point).y && (actual->point).y < (post->point).y) {
                     //Min case
-                        intersection = insert_node_last (actual->point, intersection);
-                        intersection = insert_node_last (actual->point, intersection);
-                    } else if ((actual->point).y > (post->point).y) {
+                    intersection = insert_node_last (actual->point, intersection);
+                    intersection = insert_node_last (actual->point, intersection);
+                } else if ((pre->point).y > (actual->point).y && (actual->point).y > (post->point).y) {
                     //Knee case
-                        intersection = insert_node_last (actual->point, intersection);
-                    }
+                    intersection = insert_node_last (actual->point, intersection);
+                } else if ((pre->point).y > (actual->point).y && (actual->point).y == (post->point).y) {
+                    //Min case
+                    intersection = insert_node_last (actual->point, intersection);
+                    intersection = insert_node_last (actual->point, intersection);
+                } else if ((pre->point).y == (actual->point).y && (actual->point).y > (post->point).y) {
+                    //Knee case
+                    intersection = insert_node_last (actual->point, intersection);
+                 } else if ((pre->point).y == (actual->point).y && (actual->point).y < (post->point).y) {
+                    //Min case 
+                    intersection = insert_node_last (actual->point, intersection);
+                    intersection = insert_node_last (actual->point, intersection);
+                 } else if ((pre->point).y == (actual->point).y && (actual->point).y == (post->point).y) {
+                    //Max case 
+                    intersection = insert_node_last (actual->point, intersection);
+                    intersection = insert_node_last (actual->point, intersection);
                 }
             }
-        //    printf("pre -> %d, actual -> %d, next -> %d\n", (pre->point).y, (actual->point).y, (post->point).y);
         }
     }
     return intersection;

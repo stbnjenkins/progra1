@@ -100,8 +100,8 @@ void l_total_display(LineNodePtr first) {
 void line_list_delete () {
     LineNodePtr ptr;
     if (l_first_node == NULL){
-        printf("\nEMPTY LIST:");
-        printf(":No nodes in the list to remove\n");
+        // printf("\nEMPTY LIST:");
+        // printf(":No nodes in the list to remove\n");
     } else{
         while (l_first_node != NULL) {
             ptr = l_first_node;

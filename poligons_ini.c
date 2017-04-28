@@ -11,13 +11,13 @@ Real_PointNodePtr first_poligon () {
     col3 = r_insert_node_last_pro(A, col3);
     A.x = 25.0; A.y = 400.3;
     col3 = r_insert_node_last_pro(A, col3);
-    A.x = 175.6; A.y = 399.7;
+    A.x = 175.6; A.y = 400.3;
     col3 = r_insert_node_last_pro(A, col3);
     A.x = 300.9; A.y = 500.8;
     col3 = r_insert_node_last_pro(A, col3);
-    A.x = 425.8; A.y = 403;
+    A.x = 425.8; A.y = 400.3;
     col3 = r_insert_node_last_pro(A, col3);
-    A.x = 665.7; A.y = 405;
+    A.x = 665.7; A.y = 400.3;
     col3 = r_insert_node_last_pro(A, col3);
     A.x = 465.6; A.y = 300.1;
     col3 = r_insert_node_last_pro(A, col3);

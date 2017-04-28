@@ -120,8 +120,8 @@ void r_total_display(Real_PointNodePtr first) {
 void r_point_list_delete () {
     Real_PointNodePtr ptr;
     if (r_first_node == NULL){
-        printf("\nEMPTY LIST:");
-        printf(":No nodes in the list to remove\n");
+        // printf("\nEMPTY LIST:");
+        // printf(":No nodes in the list to remove\n");
     } else{
         while (r_first_node != NULL) {
             ptr = r_first_node;
