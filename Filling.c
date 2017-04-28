@@ -114,11 +114,11 @@ LineNodePtr check_active_poligon_borders(LineNodePtr first, int skyline) {
 PointNodePtr get_max_min_knee (PointNodePtr first, int skyline) {
     PointNodePtr ptr, intersection;
     PointNodePtr pre, actual, post;
+    intersection = create_list();
     if (first == NULL){
     //    printf("\nEMPTY LIST:");
     //    printf(":No nodes in the list to display\n");
     } else{
-        intersection = create_list();
         for (ptr = first;ptr != NULL;ptr = ptr->next){
             pre = ptr;
             if (ptr->next == NULL) {

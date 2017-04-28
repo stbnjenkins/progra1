@@ -55,7 +55,6 @@ Poligon_NodePtr create_list_of_provinces (){
 
 //Plot Poligon list border only
 void plot_poligon_list_border_only (Poligon_NodePtr first, int res){
-//    ini_buffer(res);
     point_list_delete();
     r_point_list_delete();
     line_list_delete();
@@ -78,7 +77,6 @@ void plot_poligon_list_border_only (Poligon_NodePtr first, int res){
 
 //Plot Poligon list fill
 void plot_poligon_list_fill (Poligon_NodePtr first, int res){
-//    ini_buffer(res);
     point_list_delete();
     r_point_list_delete();
     line_list_delete();
@@ -101,7 +99,6 @@ void plot_poligon_list_fill (Poligon_NodePtr first, int res){
 
 //Plot Poligon list fill with texel
 void plot_poligon_list_fil_with_texel (Poligon_NodePtr first, int res){
-//    ini_buffer(res);
     point_list_delete();
     r_point_list_delete();
     line_list_delete();

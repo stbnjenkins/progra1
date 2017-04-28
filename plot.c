@@ -7,17 +7,19 @@
 #include <GL/glu.h>
 #include <GL/glut.h>
 
-
+int current_res;
 COLOR **buffer;
 
 //Plot put the points in the buffer
 void plot(int x,int y,double R,double G,double B, int mode){
-    if (mode == 7) {
-      buffer[x][y].r = R;
-      buffer[x][y].g = G;
-      buffer[x][y].b = B;
-    } else {
-        buffer[x][y] = texel_mapping(x,y, mode);
+    if (x<current_res && y <current_res){
+        if (mode == 7) {
+            buffer[x][y].r = R;
+            buffer[x][y].g = G;
+            buffer[x][y].b = B;
+        } else {
+            buffer[x][y] = texel_mapping(x,y, mode);
+        }
     }
 }
 

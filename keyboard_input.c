@@ -5,7 +5,6 @@ enum Draw_Mode {
 };
 
 int fill_mode = LINE_MODE;
-int current_res;
 
 void setMode(int newMode){
     fill_mode = newMode;

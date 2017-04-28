@@ -18,8 +18,8 @@ void map_point_to_buffer (Real_Point myPoint, int resx, int resy) {
 void create_poligon_to_buffer (PointNodePtr first){
     PointNodePtr ptr;
     if (first == NULL){
-        printf("\nEMPTY LIST:");
-        printf(":No nodes in the list to display\n");
+        //  printf("EMPTY LIST:");
+        //  printf(":No nodes in the list to display\n");
     } else{
         for (ptr = first;ptr != NULL;ptr = ptr->next){    
             if (ptr->next != NULL){
@@ -38,8 +38,8 @@ PointNodePtr map_real_to_int_point_list (Real_PointNodePtr first) {
     PointNodePtr newlist = create_list();
 
     if (first == NULL) {
-        printf("\nEMPTY LIST:");
-        printf(":No nodes in the list to display\n");
+        // printf("\nEMPTY LIST:");
+        // printf(":No nodes in the list to display\n");
     } else {
         for (ptr = first;ptr != NULL;ptr = ptr->next) {
             new_point.x = (round((ptr->my_Point).x));
