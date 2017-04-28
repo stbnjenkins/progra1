@@ -33,7 +33,6 @@ Real_PointNodePtr r_insert_node_last(Real_Point myPoint, Real_PointNodePtr first
         first = newnode;
         first->next = NULL;
     } else {
-
         for (ptr = first;ptr != NULL;ptr = ptr->next){    
             if (ptr->next == NULL){
                 ptr->next = newnode;

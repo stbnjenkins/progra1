@@ -9,7 +9,7 @@
 //Map a point into Buffer
 void map_point_to_buffer (Real_Point myPoint, int resx, int resy) {
     if (myPoint.x > 0 && myPoint.x < resx && myPoint.y > 0 && myPoint.y < resy) {
-        plot(round(myPoint.x),round(myPoint.y), 0, 0, 0);
+        plot(round(myPoint.x),round(myPoint.y), 0, 0, 0, 7);
         plot_framebuffer(resx);
     }
 }
@@ -23,9 +23,9 @@ void create_poligon_to_buffer (PointNodePtr first){
     } else{
         for (ptr = first;ptr != NULL;ptr = ptr->next){    
             if (ptr->next != NULL){
-                bresenham(ptr->point,(ptr->next)->point, 0, 0, 0);
+                bresenham(ptr->point,(ptr->next)->point, 0, 0, 0, 7);
             } else {
-                bresenham(ptr->point,first->point, 0, 0, 0);
+                bresenham(ptr->point,first->point, 0, 0, 0, 7);
             }
         }
     }
