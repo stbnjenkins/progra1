@@ -27,13 +27,13 @@ void window_runner(int res) {
     glutCreateWindow("Plot");
     glClear(GL_COLOR_BUFFER_BIT);
     gluOrtho2D(-0.5, res +0.5, -0.5, res + 0.5);
-
+  
     ini_buffer(res);
     plot_framebuffer(res);
 
     current_res = res;
     list_of_provinces = create_list_of_provinces();
-
+    poligon_do_pan (list_of_provinces, 10, 30);
     frame_plotter (current_res, fill_mode);
 
     // here are the new entries

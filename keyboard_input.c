@@ -18,16 +18,24 @@ void processNormalKeys(unsigned char key, int x, int y) {
         case 74: // J
             if (mod == (GLUT_ACTIVE_SHIFT)) {
                 printf("Rotar manecillas reloj con shift\n");
+                poligon_do_rotate (list_of_provinces,-30);
+                frame_plotter (current_res, fill_mode);
                 return;
             }
             printf("Rotar manecillas reloj\n");
+            poligon_do_rotate (list_of_provinces,-10);
+            frame_plotter (current_res, fill_mode);
             return;
         case 75: // K
             if (mod == (GLUT_ACTIVE_SHIFT)) {
                 printf("Rotar contrario manecillas reloj con shift\n");
+                poligon_do_rotate (list_of_provinces,30);
+                frame_plotter (current_res, fill_mode);
                 return;
             }
             printf("Rotar contrario manecillas reloj\n");
+            poligon_do_rotate (list_of_provinces,10);
+            frame_plotter (current_res, fill_mode);
             return;
         case 81: // Q
             exit(0);
@@ -36,35 +44,52 @@ void processNormalKeys(unsigned char key, int x, int y) {
             list_of_provinces = create_list_of_provinces();
             ini_buffer(current_res);
             plot_framebuffer(current_res);
+            poligon_do_pan (list_of_provinces, 10, 30);
             frame_plotter (current_res, 0);
             return;
         case 88: // X
             if (mod == (GLUT_ACTIVE_SHIFT)) {
                 printf("Zoom in con shift\n");
+                poligon_do_zoom (list_of_provinces, 1.3);
+                frame_plotter (current_res, fill_mode);
                 return;
             }
             printf("Zoom in\n");
+            poligon_do_zoom (list_of_provinces, 1.1);
+            frame_plotter (current_res, fill_mode);
             return;
         case 90: // Z
             if (mod == (GLUT_ACTIVE_SHIFT)) {
                 printf("Zoom out con shift\n");
+                poligon_do_zoom (list_of_provinces, 0.7);
+                frame_plotter (current_res, fill_mode);
                 return;
             }
             printf("Zoom out\n");
+            poligon_do_zoom (list_of_provinces, 0.9);
+            frame_plotter (current_res, fill_mode);
             return;
         case 106: // j
             if (mod == (GLUT_ACTIVE_SHIFT)) {
                 printf("Rotar manecillas reloj con shift\n");
+                poligon_do_rotate (list_of_provinces,-30);
+                frame_plotter (current_res, fill_mode);
                 return;
             }
             printf("Rotar manecillas reloj\n");
+            poligon_do_rotate (list_of_provinces,-10);
+            frame_plotter (current_res, fill_mode);
             return;
         case 107: // k
             if (mod == (GLUT_ACTIVE_SHIFT)) {
                 printf("Rotar contrario manecillas reloj con shift\n");
+                poligon_do_rotate (list_of_provinces,30);
+                frame_plotter (current_res, fill_mode);
                 return;
             }
             printf("Rotar contrario manecillas reloj\n");
+            poligon_do_rotate (list_of_provinces,10);
+            frame_plotter (current_res, fill_mode);
             return;
         case 113: // q
             exit(0);
@@ -73,21 +98,30 @@ void processNormalKeys(unsigned char key, int x, int y) {
             list_of_provinces = create_list_of_provinces();
             ini_buffer(current_res);
             plot_framebuffer(current_res);
+            poligon_do_pan (list_of_provinces, 10, 30);
             frame_plotter (current_res, 0);
             return;        
         case 120: // x
             if (mod == (GLUT_ACTIVE_SHIFT)) {
                 printf("Zoom in con shift\n");
+                poligon_do_zoom (list_of_provinces, 1.3);
+                frame_plotter (current_res, fill_mode);
                 return;
             }
             printf("Zoom in\n");
+            poligon_do_zoom (list_of_provinces, 1.1);
+                frame_plotter (current_res, fill_mode);
             return;
         case 122: // z
             if (mod == (GLUT_ACTIVE_SHIFT)) {
                 printf("Zoom out con shift\n");
+                poligon_do_zoom (list_of_provinces, 0.7);
+                frame_plotter (current_res, fill_mode);
                 return;
             }
             printf("Zoom out\n");
+            poligon_do_zoom (list_of_provinces, 0.9);
+            frame_plotter (current_res, fill_mode);
             return;
     }
 }
