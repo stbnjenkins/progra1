@@ -47,7 +47,7 @@ int criteria_comparizon (double value_ini, double value_fin, int border, int cri
 
 //Get Border intersection
 Real_Point get_border_intersection (Real_Point p0, Real_Point p1, int border, int criteria){
-    double m, b, y, dx, dy;
+    double m, b, dx, dy;
     Real_Point myPoint;
     dx = (p1.x - p0.x);
     dy = (p1.y - p0.y);

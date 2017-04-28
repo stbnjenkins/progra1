@@ -23,9 +23,9 @@ void create_poligon_to_buffer (PointNodePtr first){
     } else{
         for (ptr = first;ptr != NULL;ptr = ptr->next){    
             if (ptr->next != NULL){
-                bresenham(ptr->point,(ptr->next)->point);
+                bresenham(ptr->point,(ptr->next)->point, 0, 0, 0);
             } else {
-                bresenham(ptr->point,first->point);
+                bresenham(ptr->point,first->point, 0, 0, 0);
             }
         }
     }

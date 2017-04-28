@@ -14,3 +14,7 @@ void PlotPoligon (Real_PointNodePtr first, int xi, int yi, int xf, int yf){
     create_poligon_to_buffer(int_point_list);
 }
 
+//Take Poligon and filled on buffer
+void FillPoligon (){
+    
+}

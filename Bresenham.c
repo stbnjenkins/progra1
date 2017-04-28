@@ -4,11 +4,11 @@
 #include "point.h"
 #include "helpers.c"
 
-void bresenham(Point p0, Point p1) {
+void bresenham(Point p0, Point p1, double R, double G, double B) {
 
     // trivial case p0 = p1
     if(p0.x == p1.x && p0.y == p1.y){
-        plot(p0.x, p0.y, 0, 0, 0);
+        plot(p0.x, p0.y, R, G, B);
         //printf("(%d, %d)", p0.x, p0.y);
         return;
     }
@@ -41,7 +41,7 @@ void bresenham(Point p0, Point p1) {
     Delta_SE = ydif+xdif+ydif+xdif;
 
     //print first point
-    plot(xp, yp, 0, 0, 0);
+    plot(xp, yp, R, G, B);
    // printf("(%d, %d)", xp, yp);
 
 
@@ -54,11 +54,11 @@ void bresenham(Point p0, Point p1) {
             //ciclo
             for(i = p0.y; i < p1.y; i++){
                 if (d<0){
-                    plot(xp+1, yp+1, 0, 0, 0);
+                    plot(xp+1, yp+1, R, G, B);
                 //    printf("(%d, %d)", xp+1, yp+1);
                     xp++; yp++; d = d + Delta_NE;
                 } else{
-                    plot(xp, yp+1, 0, 0, 0);
+                    plot(xp, yp+1, R, G, B);
                //     printf("(%d, %d)", xp, yp+1);
 
                     yp++; d = d + Delta_N;
@@ -71,11 +71,11 @@ void bresenham(Point p0, Point p1) {
             //ciclo
             for(i = p0.x; i < p1.x; i++){
                 if (d<0){
-                    plot(xp+1, yp, 0, 0, 0);
+                    plot(xp+1, yp, R, G, B);
                 //    printf("(%d, %d)", xp+1, yp);
                     xp++; d = d + Delta_E;
                 } else{
-                    plot(xp+1, yp+1, 0, 0, 0);
+                    plot(xp+1, yp+1, R, G, B);
                  //   printf("(%d, %d)", xp+1, yp+1);
                     xp++; yp++; d = d + Delta_NE;
                 }
@@ -89,11 +89,11 @@ void bresenham(Point p0, Point p1) {
             //ciclo
             for(i = p0.y; i > p1.y; i--){
                 if (d<0){
-                    plot(xp, yp-1, 0, 0, 0);
+                    plot(xp, yp-1, R, G, B);
                 //    printf("(%d, %d)", xp, yp-1);
                     yp--; d = d + Delta_S;
                 } else{
-                    plot(xp+1, yp-1, 0, 0, 0);
+                    plot(xp+1, yp-1, R, G, B);
                 //    printf("(%d, %d)", xp+1, yp-1);
                     xp++; yp--; d = d + Delta_SE;
                 }
@@ -105,11 +105,11 @@ void bresenham(Point p0, Point p1) {
             //ciclo
             for(i = p0.x; i < p1.x; i++){
                 if (d<0){
-                    plot(xp+1, yp-1, 0 , 0 , 0);
+                    plot(xp+1, yp-1, R , G, B);
                 //    printf("(%d, %d)", xp+1, yp-1);
                     xp++; yp--; d = d + Delta_SE;
                 } else{
-                    plot(xp+1, yp, 0, 0, 0);
+                    plot(xp+1, yp, R, G, B);
                //     printf("(%d, %d)", xp+1, yp);
                     xp++; d = d + Delta_E;
                 }
