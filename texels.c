@@ -312,40 +312,48 @@ void openTextureFiles(){
 
 COLOR texel_mapping(int x, int y, int provincia){
     COLOR texel_color;
+    int temp;
     switch(provincia){
         case SAN_JOSE:
-            x = x % width_san_jose;
-            y = y % height_san_jose;
+            temp = x;
+            x = y % width_san_jose;
+            y = temp % height_san_jose;
             texel_color = texture_san_jose[y][x];
             break;
         case CARTAGO:
-            x = x % width_cartago;
-            y = y % height_cartago;
+            temp = x;
+            x = y % width_cartago;
+            y = temp % height_cartago;
             texel_color = texture_cartago[y][x];
             break;
         case ALAJUELA:
-            x = x % width_alajuela;
-            y = y % height_alajuela;
+            temp = x;
+            x = y % width_alajuela;
+            y = temp % height_alajuela;
             texel_color = texture_alajuela[y][x];
             break;
         case PUNTARENAS:
-            x = x % width_puntarenas;
-            y = y % height_puntarenas;
+            temp = x;
+            x = y % width_puntarenas;
+            y = temp % height_puntarenas;
             texel_color = texture_puntarenas[y][x];
             break;
         case LIMON:
-            x = x % width_limon;
-            y = y % height_limon;
+            temp = x;
+            x = y % width_limon;
+            y = temp % height_limon;
             texel_color = texture_limon[y][x];
             break;
         case HEREDIA:
-            x = x % width_heredia;
-            y = y % height_heredia;
+            temp = x;
+            x = y % width_heredia;
+            y = temp % height_heredia;
             texel_color = texture_heredia[y][x];
             break;
         case GUANACASTE:
-            x = x % width_guanacaste;
-            y = y % height_guanacaste;
+            temp = x;
+            x = y % width_guanacaste;
+            y = temp % height_guanacaste;
             texel_color = texture_guanacaste[y][x];
             break;
         default:
