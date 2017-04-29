@@ -125,7 +125,7 @@ void openTextureFiles(){
     fclose(fptr_san_jose);
 
     // HEREDIA
-    if ((fptr_heredia = fopen("textures/heredia.avs","rb")) == NULL) {
+    if ((fptr_heredia = fopen("textures/mmora.avs","rb")) == NULL) {
       fprintf(stderr,"Failed to open HEREDIA input file\n");
       exit(-1);
     }
@@ -236,7 +236,7 @@ void openTextureFiles(){
     fclose(fptr_limon);
 
     // GUANACASTE
-    if ((fptr_guanacaste = fopen("textures/green.avs","rb")) == NULL) {
+    if ((fptr_guanacaste = fopen("textures/guanacaste.avs","rb")) == NULL) {
       fprintf(stderr,"Failed to open GUANACASTE input file\n");
       exit(-1);
     }
