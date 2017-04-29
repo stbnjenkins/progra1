@@ -2,8 +2,9 @@
 #include "san_jose.c"
 #include "alajuela.c"
 #include "cartago.c"
-//#include "heredia.c"
+#include "heredia.c"
 #include "puntarenas.c"
+#include "puntarenas2.c"
 #include "limon.c"
 #include "guanacaste.c"
 
@@ -35,16 +36,16 @@ Poligon_NodePtr create_list_of_provinces (){
     first = poligon_insert_node_last(list_of_points, 1, 0.4, 0, 3, first);
 
     // // //including Puntarenas 2
-    // // list_of_points = first_poligon();
-    // // first = poligon_insert_node_last(list_of_points, 1, 0.4, 0, 3, first);
+    list_of_points = puntarenas2_poligon();
+    first = poligon_insert_node_last(list_of_points, 1, 0.4, 0, 3, first);
 
     // //including Limon
     list_of_points = limon_poligon();
     first = poligon_insert_node_last(list_of_points, 0, 1, 0, 4, first);
 
-    // // //including Heredia
-    // // list_of_points = first_poligon();
-    // // first = poligon_insert_node_last(list_of_points, 1, 1, 0, 5, first);
+    //including Heredia
+    list_of_points = heredia_poligon();
+    first = poligon_insert_node_last(list_of_points, 1, 1, 0, 5, first);
 
     // //including Guana
     list_of_points = guanacaste_poligon();
