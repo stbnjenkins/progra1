@@ -38,7 +38,7 @@ void plot_framebuffer(int res) {
             glEnd();
            }
       }
-  glFlush();
+  glutSwapBuffers();
 }
 
 //Initialize buffer (everything white)
@@ -51,11 +51,11 @@ void ini_buffer(int res) {
         buffer[i] = (COLOR *)malloc(res * sizeof(COLOR));
     }
 
-    //initialize the values R G B for every pixel
+    //initialize the values R G B for every pixel 
     for (i = 0; i < res; i++) {
         for (j = 0; j < res; j++) {
-            buffer[i][j].r = 1;
-            buffer[i][j].g = 1;
+            buffer[i][j].r = 0.57255;
+            buffer[i][j].g = 0.9098;
             buffer[i][j].b = 1;
         }
     }
