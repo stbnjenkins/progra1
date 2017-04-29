@@ -60,9 +60,9 @@ void openTextureFiles(){
     height_alajuela = FIX(height_alajuela);
 
     int i, j;
-    texture_alajuela = (COLOR **)malloc(width_alajuela * sizeof(COLOR*));
-    for (i = 0; i < width_alajuela; i++) {
-        texture_alajuela[i] = (COLOR *)malloc(height_alajuela * sizeof(COLOR));
+    texture_alajuela = (COLOR **)malloc(height_alajuela * sizeof(COLOR*));
+    for (j = 0; j < height_alajuela; j++) {
+        texture_alajuela[j] = (COLOR *)malloc(width_alajuela * sizeof(COLOR));
     }
 
     // Rellenar matriz
@@ -70,8 +70,8 @@ void openTextureFiles(){
     i = 0;
     j = 0;
     COLOR t;
-    while(i < width_alajuela){
-        while(j < height_alajuela){
+    while(j < height_alajuela){
+        while(i < width_alajuela){
             a = fgetc(fptr_alajuela);   //alfa
             r = fgetc(fptr_alajuela);   // red
             g = fgetc(fptr_alajuela);   // green
@@ -79,11 +79,11 @@ void openTextureFiles(){
             t.r = r/255.0;
             t.g = g/255.0;
             t.b = b/255.0;
-            texture_alajuela[i][j] = t;
-            j++;
+            texture_alajuela[j][i] = t;
+            i++;
         }
-        j = 0;
-        i++;
+        i = 0;
+        j++;
     }
     fclose(fptr_alajuela);
 
@@ -100,15 +100,15 @@ void openTextureFiles(){
     fread(&height_san_jose,sizeof(int),1,fptr_san_jose);
     height_san_jose = FIX(height_san_jose);
 
-    texture_san_jose = (COLOR **)malloc(width_san_jose * sizeof(COLOR*));
-    for (i = 0; i < width_san_jose; i++) {
-        texture_san_jose[i] = (COLOR *)malloc(height_san_jose * sizeof(COLOR));
+    texture_san_jose = (COLOR **)malloc(height_san_jose * sizeof(COLOR*));
+    for (j = 0; j < height_san_jose; j++) {
+        texture_san_jose[j] = (COLOR *)malloc(width_san_jose * sizeof(COLOR));
     }
 
     i = 0;
     j = 0;
-    while(i < width_san_jose){
-        while(j < height_san_jose){
+    while(j < height_san_jose){
+        while(i < width_san_jose){
             a = fgetc(fptr_san_jose);   //alfa
             r = fgetc(fptr_san_jose);   // red
             g = fgetc(fptr_san_jose);   // green
@@ -116,11 +116,11 @@ void openTextureFiles(){
             t.r = r/255.0;
             t.g = g/255.0;
             t.b = b/255.0;
-            texture_san_jose[i][j] = t;
-            j++;
+            texture_san_jose[j][i] = t;
+            i++;
         }
-        j = 0;
-        i++;
+        i = 0;
+        j++;
     }
     fclose(fptr_san_jose);
 
@@ -137,15 +137,15 @@ void openTextureFiles(){
     fread(&height_heredia,sizeof(int),1,fptr_heredia);
     height_heredia = FIX(height_heredia);
 
-    texture_heredia = (COLOR **)malloc(width_heredia * sizeof(COLOR*));
-    for (i = 0; i < width_heredia; i++) {
-        texture_heredia[i] = (COLOR *)malloc(height_heredia * sizeof(COLOR));
+    texture_heredia = (COLOR **)malloc(height_heredia * sizeof(COLOR*));
+    for (j = 0; j< height_heredia; j++) {
+        texture_heredia[j] = (COLOR *)malloc(width_heredia * sizeof(COLOR));
     }
 
     i = 0;
     j = 0;
-    while(i < width_heredia){
-        while(j < height_heredia){
+    while(j < height_heredia){
+        while(i < width_heredia){
             a = fgetc(fptr_heredia);   //alfa
             r = fgetc(fptr_heredia);   // red
             g = fgetc(fptr_heredia);   // green
@@ -153,11 +153,11 @@ void openTextureFiles(){
             t.r = r/255.0;
             t.g = g/255.0;
             t.b = b/255.0;
-            texture_heredia[i][j] = t;
-            j++;
+            texture_heredia[j][i] = t;
+            i++;
         }
-        j = 0;
-        i++;
+        i = 0;
+        j++;
     }
     fclose(fptr_heredia);
 
@@ -174,15 +174,15 @@ void openTextureFiles(){
     fread(&height_cartago,sizeof(int),1,fptr_cartago);
     height_cartago = FIX(height_cartago);
 
-    texture_cartago = (COLOR **)malloc(width_cartago * sizeof(COLOR*));
-    for (i = 0; i < width_cartago; i++) {
-        texture_cartago[i] = (COLOR *)malloc(height_cartago * sizeof(COLOR));
+    texture_cartago = (COLOR **)malloc(height_cartago * sizeof(COLOR*));
+    for (j = 0; j < height_cartago; j++) {
+        texture_cartago[j] = (COLOR *)malloc(width_cartago * sizeof(COLOR));
     }
 
     i = 0;
     j = 0;
-    while(i < width_cartago){
-        while(j < height_cartago){
+    while(j < height_cartago){
+        while(i < width_cartago){
             a = fgetc(fptr_cartago);   //alfa
             r = fgetc(fptr_cartago);   // red
             g = fgetc(fptr_cartago);   // green
@@ -190,11 +190,11 @@ void openTextureFiles(){
             t.r = r/255.0;
             t.g = g/255.0;
             t.b = b/255.0;
-            texture_cartago[i][j] = t;
-            j++;
+            texture_cartago[j][i] = t;
+            i++;
         }
-        j = 0;
-        i++;
+        i = 0;
+        j++;
     }
     fclose(fptr_cartago);
 
@@ -211,15 +211,15 @@ void openTextureFiles(){
     fread(&height_limon,sizeof(int),1,fptr_limon);
     height_limon = FIX(height_limon);
 
-    texture_limon = (COLOR **)malloc(width_limon * sizeof(COLOR*));
-    for (i = 0; i < width_limon; i++) {
-        texture_limon[i] = (COLOR *)malloc(height_limon * sizeof(COLOR));
+    texture_limon = (COLOR **)malloc(height_limon * sizeof(COLOR*));
+    for (j = 0; j < height_limon; j++) {
+        texture_limon[j] = (COLOR *)malloc(width_limon * sizeof(COLOR));
     }
 
     i = 0;
     j = 0;
-    while(i < width_limon){
-        while(j < height_limon){
+    while(j < height_limon){
+        while(i < width_limon){
             a = fgetc(fptr_limon);   //alfa
             r = fgetc(fptr_limon);   // red
             g = fgetc(fptr_limon);   // green
@@ -227,11 +227,11 @@ void openTextureFiles(){
             t.r = r/255.0;
             t.g = g/255.0;
             t.b = b/255.0;
-            texture_limon[i][j] = t;
-            j++;
+            texture_limon[j][i] = t;
+            i++;
         }
-        j = 0;
-        i++;
+        i = 0;
+        j++;
     }
     fclose(fptr_limon);
 
@@ -248,15 +248,15 @@ void openTextureFiles(){
     fread(&height_guanacaste,sizeof(int),1,fptr_guanacaste);
     height_guanacaste = FIX(height_guanacaste);
 
-    texture_guanacaste = (COLOR **)malloc(width_guanacaste * sizeof(COLOR*));
-    for (i = 0; i < width_guanacaste; i++) {
-        texture_guanacaste[i] = (COLOR *)malloc(height_guanacaste * sizeof(COLOR));
+    texture_guanacaste = (COLOR **)malloc(height_guanacaste * sizeof(COLOR*));
+    for (j = 0; j < height_guanacaste; j++) {
+        texture_guanacaste[j] = (COLOR *)malloc(width_guanacaste * sizeof(COLOR));
     }
 
     i = 0;
     j = 0;
-    while(i < width_guanacaste){
-        while(j < height_guanacaste){
+    while(j < height_guanacaste){
+        while(i < width_guanacaste){
             a = fgetc(fptr_guanacaste);   //alfa
             r = fgetc(fptr_guanacaste);   // red
             g = fgetc(fptr_guanacaste);   // green
@@ -264,11 +264,11 @@ void openTextureFiles(){
             t.r = r/255.0;
             t.g = g/255.0;
             t.b = b/255.0;
-            texture_guanacaste[i][j] = t;
-            j++;
+            texture_guanacaste[j][i] = t;
+            i++;
         }
-        j = 0;
-        i++;
+        i = 0;
+        j++;
     }
     fclose(fptr_guanacaste);
     
@@ -285,15 +285,15 @@ void openTextureFiles(){
     fread(&height_puntarenas,sizeof(int),1,fptr_puntarenas);
     height_puntarenas = FIX(height_puntarenas);
 
-    texture_puntarenas = (COLOR **)malloc(width_puntarenas * sizeof(COLOR*));
-    for (i = 0; i < width_puntarenas; i++) {
-        texture_puntarenas[i] = (COLOR *)malloc(height_puntarenas * sizeof(COLOR));
+    texture_puntarenas = (COLOR **)malloc(height_puntarenas * sizeof(COLOR*));
+    for (j = 0; j < height_puntarenas; j++) {
+        texture_puntarenas[j] = (COLOR *)malloc(width_puntarenas * sizeof(COLOR));
     }
 
     i = 0;
     j = 0;
-    while(i < width_puntarenas){
-        while(j < height_puntarenas){
+    while(j < height_puntarenas){
+        while(i < width_puntarenas){
             a = fgetc(fptr_puntarenas);   //alfa
             r = fgetc(fptr_puntarenas);   // red
             g = fgetc(fptr_puntarenas);   // green
@@ -301,11 +301,11 @@ void openTextureFiles(){
             t.r = r/255.0;
             t.g = g/255.0;
             t.b = b/255.0;
-            texture_puntarenas[i][j] = t;
-            j++;
+            texture_puntarenas[j][i] = t;
+            i++;
         }
-        j = 0;
-        i++;
+        i = 0;
+        j++;
     }
     fclose(fptr_puntarenas);
 }
@@ -316,37 +316,37 @@ COLOR texel_mapping(int x, int y, int provincia){
         case SAN_JOSE:
             x = x % width_san_jose;
             y = y % height_san_jose;
-            texel_color = texture_san_jose[x][y];
+            texel_color = texture_san_jose[y][x];
             break;
         case CARTAGO:
             x = x % width_cartago;
             y = y % height_cartago;
-            texel_color = texture_cartago[x][y];
+            texel_color = texture_cartago[y][x];
             break;
         case ALAJUELA:
             x = x % width_alajuela;
             y = y % height_alajuela;
-            texel_color = texture_alajuela[x][y];
+            texel_color = texture_alajuela[y][x];
             break;
         case PUNTARENAS:
             x = x % width_puntarenas;
             y = y % height_puntarenas;
-            texel_color = texture_puntarenas[x][y];
+            texel_color = texture_puntarenas[y][x];
             break;
         case LIMON:
             x = x % width_limon;
             y = y % height_limon;
-            texel_color = texture_limon[x][y];
+            texel_color = texture_limon[y][x];
             break;
         case HEREDIA:
             x = x % width_heredia;
             y = y % height_heredia;
-            texel_color = texture_heredia[x][y];
+            texel_color = texture_heredia[y][x];
             break;
         case GUANACASTE:
             x = x % width_guanacaste;
             y = y % height_guanacaste;
-            texel_color = texture_guanacaste[x][y];
+            texel_color = texture_guanacaste[y][x];
             break;
         default:
             texel_color.r = 0.0;
